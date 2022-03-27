@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/>
+		<meta name="viewport"content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>News Slider</title>
+		<link href="css/style.css"rel="stylesheet"type="text/css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" crossorigin="anonymous" />
+		<script src="https://code.jquery.com/jquery-1.12.4.js" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" crossorigin="anonymous"></script>
+
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    background-image: url(https://www.color-hex.com/palettes/45604.png);
+	font-family: 'Oswald', sans-serif !important;
+	display: flex;
+	height: 100vh;
+	align-items: center;
+}
+
+.news-wrap {
+	width: 100%;
+	padding: 30px 0;
+}
+
+.news-grid {
+	width: auto;
+	position: relative;
+	background: rgba(255, 0, 76, 0.199);
+	border-radius: 5px;
+	overflow: hidden;
+	border: 1px solid rgb(0, 0, 0);	/*box-shadow: 0px 10px 30px 0px rgba(50, 50, 50, 0.16);*/
+	margin: 10px;
+}
+
+.news-grid-image {
+	width: 100%;
+	height: 280px;
+	overflow: hidden;
+}
+
+.news-grid-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: .5s;
+}
+
+
+
+.news-grid-box h1 {
+	color: rgb(255, 255, 255);
+	font-size: 30px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid rgba(255, 255, 255, .3);
+	margin-bottom: 5px;
+}
+
+.news-grid-box p {
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 0px;
+}
+
+.news-grid-txt {
+	padding: 25px;
+}
+
+
+
+.news-grid-txt h2 {
+	color: rgb(0, 0, 0);
+	font-size: 30px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	margin: 10px 0px 5px 0px;
+}
+
+.news-grid-txt ul {
+	padding: 0;
+	margin: 0;
+}
+
+.news-grid-txt ul li {
+	list-style: none;
+	display: inline-block;
+	color: #999;
+	font-size: 14px;
+	font-weight: 300;
+	margin: 8px 10px 8px 0px;
+	letter-spacing: 1px;
+}
+
+
+
+.news-grid-txt p {
+	color: #222;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 170%;
+	letter-spacing: 1.5px;
+	border-bottom: 1px solid #ececec;
+	padding-bottom: 15px;
+	margin-bottom: 25px;
+}
+
+.news-grid-txt a {
+	color: rgb(255, 255, 255);
+	background: #e96d0e;
+	padding: 8px 20px;
+	border-radius: 50px;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 30px;
+	letter-spacing: 1px;
+	text-decoration-line: none;
+	transition: .5s;
+}
+
+/*Hover-Section*/
+.news-grid:hover .news-grid-box {
+	left: 15px;
+	transition: .5s;
+}
+
+.news-grid:hover .news-grid-image img {
+	filter: grayscale(1);
+	transform: scale(1.1);
+	transition: .5s;
+}
+
+.news-grid:hover .news-grid-txt a {
+	text-decoration-line: none;
+	color: rgb(255, 255, 255);
+	letter-spacing: 2px;
+	transition: .5s;
+}
+
+/*OWL*/
+.owl-controls .owl-buttons {
+	position: relative;
+}
+
+.owl-controls .owl-prev {
+	position: absolute;
+	left: -40px;
+	bottom: 230px;
+	padding: 8px 17px;
+	background: #db1180;
+	border-radius: 50px;
+	transition: .5s;
+}
+
+.owl-controls .owl-next {
+	position: absolute;
+	right: -40px;
+	bottom: 230px;
+	padding: 8px 17px;
+	background: #db1180;
+	border-radius: 50px;
+	transition: .5s;
+}
+
+.owl-controls .owl-prev:after, .owl-controls .owl-next:after {
+	content: '\f104';
+	font-family: FontAwesome;
+	color: rgb(255, 255, 255);
+	font-size: 16px;
+}
+
+.owl-controls .owl-next:after {
+	content: '\f105';
+}
+
+.owl-controls .owl-prev:hover, .owl-controls .owl-next:hover {
+	background: rgb(240, 212, 0);
+}
+
+</style>
+
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div id="news-slider" class="owl-carousel">
+						<!-- 1 -->
+						<div class="news-grid">
+							<div class="news-grid-image"><img src="https://gaytherapyla.com/wp-content/uploads/2020/11/depositphotos_64582431-stock-photo-two-fathers-with-babies-e1605214578484.jpg" alt="">
+								<div class="news-grid-box">
+						
+								</div></div>
+								<div class="news-grid-txt">
+									
+									<h2>Gays With Kids</h2>
+									
+									<p>To inspire, inform and guide gay, bi and trans men throughout their journey of family building, and then to support these dads to live their best authentic lives while navigating fatherhood. At GWK, we set out to inspire and educate future dads; to build a community founded on truth, love and support; and to change the hearts and minds of our family, neighbors and colleagues.</p>
+									<a href="https://www.gayswithkids.com/">Read More</a>
+								</div>
+							</div>
+							<!-- 2 -->
+							<div class="news-grid">
+								<div class="news-grid-image"><img src="https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_1440,w_2560,x_0,y_0/dpr_1.5/c_limit,w_1044/fl_lossy,q_auto/v1530210124/180628-allen-SCOTUS-lgbt-tease_bqi3me" alt="">
+									<div class="news-grid-box">
+										
+									</div></div>
+									<div class="news-grid-txt">
+										
+                                        <h2>Good As You (G-A-Y)</h2>
+										
+										<p>For over a decade, G-A-Y served as an invaluable tool, providing impactful opposition research, thought-leading commentary, and a healthy dose of quick wit. Hopefully this historical record will serve future activists as they take the ball and run it further toward the ultimate goal of full equality.</p>
+										<a href="https://www.goodasyou.org/">Read More</a>
+									</div>
+								</div>
+								<!-- 3 -->
+								<div class="news-grid">
+									<div class="news-grid-image"><img src="https://media.istockphoto.com/photos/two-lesbian-mother-and-baby-on-bed-having-fun-picture-id1169746032?k=20&m=1169746032&s=612x612&w=0&h=I6BSgk6ITby6wposkuFXy5VbXLpAEqN9Yyx_so5UVcU=" alt="">
+										<div class="news-grid-box">
+											
+										</div></div>
+										<div class="news-grid-txt">
+										
+											<h2>Sustenance for Lesbian Moms</h2>
+											
+											<p>Mombian is a lifestyle site for lesbian moms and other LGBTQ parents, offering a mix of parenting, politics, diversions, and resources. I founded Mombian in 2005 after noting a lack of sites with current, practical news and information for LGBTQ parents, or sites that looked at other aspects of LGBTQ culture with a parent’s eye</p>
+											<a href="https://mombian.com/">Read More</a>
+										</div>
+									</div>
+									<!-- 4 -->
+									<div class="news-grid">
+										<div class="news-grid-image"><img src="https://media.istockphoto.com/photos/happy-female-couple-hugging-and-kissing-at-the-gay-pride-parade-picture-id1031886102?k=20&m=1031886102&s=612x612&w=0&h=FzngiGl6bHF_7GRhaKyCuX-iOSj3Mb7fScbMwdoQVnU=" alt="">
+											<div class="news-grid-box">
+												
+											</div></div>
+											<div class="news-grid-txt">
+											
+												<h2>The National Center for Lesbian Rights</h2>
+											
+												<p>With a commitment to racial and economic justice and our community’s most vulnerable, NCLR is a leader at the forefront of advancing civil and human rights for LGBTQ individuals and their families through impact litigation, public policy, and public education. NCLR is a national legal organization committed to advancing the civil and human rights of lesbian, gay, bisexual, and transgender people and their families through litigation, legislation, policy, and public education.</p>
+												<a href="https://www.nclrights.org/">Read More</a>
+											</div>
+										</div>
+										<!-- 5 -->
+										<div class="news-grid">
+											<div class="news-grid-image"><img src="https://marriedinpalmbeach.com/wp-content/uploads/2020/06/0-LGTBQ-Weddings_Krystal-Zaskey-Photography.jpg" alt="">
+												<div class="news-grid-box">
+													
+												</div></div>
+												<div class="news-grid-txt">
+												
+													<h2>Gorgeous LGBTQ+ Weddings ~ Engagements ~ Inspiration</h2>
+													
+													<p>Equally Wed is an international online LGBTQ+ wedding magazine, book and education resource for LGBTQ+ couples and LGBTQ+ inclusive wedding professionals. Within our inspirational content, we focus on wedding planning, real weddings and engagements, marriage equality news and spotlights gay-friendly LGBTQ+ inclusive wedding vendors.</p>
+													<a href="https://equallywed.com/">Read More</a>
+												</div>
+											</div>
+											<!-- 6 -->
+											<div class="news-grid">
+												<div class="news-grid-image"><img src="https://i.pinimg.com/736x/eb/b0/b9/ebb0b9d3bcfa45e6dcf67b3e953f7f81.jpg" alt="">
+													<div class="news-grid-box">
+														
+													</div></div>
+													<div class="news-grid-txt">
+														
+														<h2>EQUALLY WED</h2>
+														
+														<p>When we launched into the LGBTI Wedding Industry (2012) at the time there was no other directory, platform or website that delivered a safe, welcoming wedding website for LGBTI couples. We started working with the wedding community, allowing vendors who support marriage equality to ‘come out’ and proudly showcase their services or venue to same-sex couples. Those vendors who saw a future that included LGBTI couples as equals under the law quickly jumped on board as we began to educate the wedding industry on how to work with LGBTI couples.</p>
+														<a href="https://www.wedeqtory.com.au/">Read More</a>
+													</div>
+												</div>
+												<!-- 7 -->
+												
+															
+															
+
+            
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- Script-Section -->
+												<script type="text/javascript">
+													$(document).ready(function(){
+														$("#news-slider").owlCarousel({
+															items:3,
+															navigation:true,
+															navigationText:["",""],
+															autoPlay:true
+														});
+													});
+												</script>
+											</body>
+										</html>
